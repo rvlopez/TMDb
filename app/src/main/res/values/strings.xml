@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PrivaliaChallenge</string>
+    <string name="show_no_results_message">Opps! Something went wrong!</string>
 </resources>
