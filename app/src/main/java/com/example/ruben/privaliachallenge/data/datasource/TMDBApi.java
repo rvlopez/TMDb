@@ -13,6 +13,6 @@ public interface TMDbApi {
     @GET("movie/popular?api_key=" + API_KEY + "&language=en-US")
     Observable<TMDbResponseDto> getPopularMovies(@Query("page") int page);
 
-    @GET("/search/movie?api_key=" + API_KEY + "&language=en-US")
+    @GET("search/movie?api_key=" + API_KEY + "&language=en-US")
     Observable<TMDbResponseDto> searchMovie(@Query("query") String query, @Query("page") int page);
 }
