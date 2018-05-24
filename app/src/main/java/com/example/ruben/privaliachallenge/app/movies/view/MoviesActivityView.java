@@ -5,7 +5,7 @@ import com.example.ruben.privaliachallenge.entity.MovieEntity;
 
 import java.util.List;
 
-public interface MovieView extends IView {
+public interface MoviesActivityView extends IView {
 
     void showMoviesData(List<MovieEntity> movieList);
 

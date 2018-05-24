@@ -2,7 +2,7 @@ package com.example.ruben.privaliachallenge.app.movies.presenter;
 
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCaseImpl;
-import com.example.ruben.privaliachallenge.app.movies.view.MovieView;
+import com.example.ruben.privaliachallenge.app.movies.view.MoviesActivityView;
 import com.example.ruben.privaliachallenge.core.presenter.Presenter;
 import com.example.ruben.privaliachallenge.entity.MovieEntity;
 import com.example.ruben.privaliachallenge.entity.ResponseEntity;
@@ -14,13 +14,13 @@ import javax.inject.Inject;
 
 import rx.Subscriber;
 
-public class MoviePresenter extends Presenter<MovieView> {
+public class MoviesPresenter extends Presenter<MoviesActivityView> {
 
     private PopularMoviesUseCaseImpl popularMoviesUseCaseImpl;
     private SearchMovieUseCaseImpl searchMovieUseCaseImpl;
 
     @Inject
-    public MoviePresenter(PopularMoviesUseCaseImpl popularMoviesUseCaseImpl, SearchMovieUseCaseImpl searchMovieUseCaseImpl) {
+    public MoviesPresenter(PopularMoviesUseCaseImpl popularMoviesUseCaseImpl, SearchMovieUseCaseImpl searchMovieUseCaseImpl) {
         this.popularMoviesUseCaseImpl = popularMoviesUseCaseImpl;
         this.searchMovieUseCaseImpl = searchMovieUseCaseImpl;
     }
