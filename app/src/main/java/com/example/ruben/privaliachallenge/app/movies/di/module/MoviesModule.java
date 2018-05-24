@@ -1,6 +1,6 @@
 package com.example.ruben.privaliachallenge.app.movies.di.module;
 
-import com.example.ruben.privaliachallenge.app.movies.presenter.MoviePresenter;
+import com.example.ruben.privaliachallenge.app.movies.presenter.MoviesPresenter;
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCase;
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCase;
@@ -14,8 +14,8 @@ import dagger.Provides;
 public class MoviesModule {
 
     @Provides
-    public MoviePresenter provideMoviePresenter(PopularMoviesUseCaseImpl popularMoviesUseCaseImpl, SearchMovieUseCaseImpl searchMovieUseCaseImpl) {
-        return  new MoviePresenter(popularMoviesUseCaseImpl, searchMovieUseCaseImpl);
+    public MoviesPresenter provideMoviePresenter(PopularMoviesUseCaseImpl popularMoviesUseCaseImpl, SearchMovieUseCaseImpl searchMovieUseCaseImpl) {
+        return  new MoviesPresenter(popularMoviesUseCaseImpl, searchMovieUseCaseImpl);
     }
 
     @Provides
