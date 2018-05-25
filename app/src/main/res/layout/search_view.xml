@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.SearchView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/searchView"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:padding="10dp"
+    app:queryBackground="@color/white"
+    app:submitBackground="@color/white"
+    app:defaultQueryHint="@string/search_view_hint_text"
+    app:searchHintIcon="@null" />

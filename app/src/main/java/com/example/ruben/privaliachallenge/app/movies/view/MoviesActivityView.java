@@ -9,6 +9,10 @@ public interface MoviesActivityView extends IView {
 
     void showMoviesData(List<MovieEntity> movieList);
 
+    void showSearchMoviesData(List<MovieEntity> movieList);
+
+    void setSearchMode(boolean isSearchMode);
+
     void showProgress();
 
     void hideProgress();

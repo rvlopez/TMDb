@@ -10,11 +10,7 @@ public abstract class Presenter<V extends IView> {
         if (view == null) {
             throw new IllegalArgumentException("Presenter's view can not be null.");
         }
-
-        initialize();
     }
-
-    protected abstract void initialize();
 
     public abstract void stop();
 

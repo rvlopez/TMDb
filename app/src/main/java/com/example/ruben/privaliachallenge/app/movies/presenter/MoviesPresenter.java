@@ -26,6 +26,7 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
     }
 
     public void loadPopularMovies(int page) {
+        view.setSearchMode(false);
         view.showProgress();
 
         popularMoviesUseCaseImpl.execute(page, new Subscriber<ResponseEntity>() {
@@ -47,6 +48,7 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
             @Override
             public void onError(Throwable e) {
                 view.hideProgress();
+                view.showNoResults();
             }
 
             @Override
@@ -57,6 +59,7 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
     }
 
     public void searchMovie(String movie, int page) {
+        view.setSearchMode(true);
         view.showProgress();
 
         searchMovieUseCaseImpl.execute(movie, page, new Subscriber<ResponseEntity>() {
@@ -71,13 +74,14 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
                     view.showNoResults();
                 } else {
                     view.hideNoResults();
-                    view.showMoviesData(movieList);
+                    view.showSearchMoviesData(movieList);
                 }
             }
 
             @Override
             public void onError(Throwable e) {
                 view.hideProgress();
+                view.showNoResults();
             }
 
             @Override
@@ -85,11 +89,6 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
                 movieList.addAll(responseEntity.getResults());
             }
         });
-    }
-
-    @Override
-    protected void initialize() {
-
     }
 
     @Override

@@ -47,7 +47,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
         holder.movieTitle.setText(movieEntity.getTitle());
         holder.movieYear.setText(movieEntity.getReleaseDate());
         holder.movieDescription.setText(movieEntity.getOverview());
-
     }
 
     @Override
@@ -56,7 +55,21 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
     }
 
     public void setMovies(List<MovieEntity> movieList) {
-        this.movieList = movieList;
+        if (this.movieList == null){
+            this.movieList = new ArrayList<>();
+        }
+        this.movieList.addAll(movieList);
+        notifyDataSetChanged();
+    }
+
+    public void replaceMovies(List<MovieEntity> movieList) {
+        clearMovies();
+        this.movieList.addAll(movieList);
+        notifyDataSetChanged();
+    }
+
+    public void clearMovies() {
+        this.movieList.clear();
         notifyDataSetChanged();
     }
 

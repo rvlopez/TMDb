@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PrivaliaChallenge</string>
     <string name="show_no_results_message">Opps! Something went wrong!</string>
+    <string name="search_view_hint_text">Find your favorite movie</string>
 </resources>
