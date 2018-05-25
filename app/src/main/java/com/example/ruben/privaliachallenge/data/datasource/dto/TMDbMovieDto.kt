@@ -9,7 +9,7 @@ data class TMDbMovieDto(
         val id: Int,
         val video: Boolean,
         @SerializedName("vote_average")
-        val voteAverage: Int,
+        val voteAverage: Float,
         val title: String,
         val popularity: Float,
         @SerializedName("poster_path")

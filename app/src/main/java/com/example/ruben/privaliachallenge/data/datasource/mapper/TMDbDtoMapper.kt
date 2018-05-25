@@ -4,8 +4,9 @@ import com.example.ruben.privaliachallenge.data.datasource.dto.TMDbMovieDto
 import com.example.ruben.privaliachallenge.data.datasource.dto.TMDbResponseDto
 import com.example.ruben.privaliachallenge.entity.MovieEntity
 import com.example.ruben.privaliachallenge.entity.ResponseEntity
+import javax.inject.Inject
 
-class TMDbDtoMapper {
+class TMDbDtoMapper @Inject constructor(){
 
     fun toEntity(tmDbResponseDto: TMDbResponseDto) : ResponseEntity {
         return ResponseEntity(

@@ -6,7 +6,7 @@ class MovieEntity (
         val voteCount: Int,
         val id: Int,
         val video: Boolean,
-        val voteAverage: Int,
+        val voteAverage: Float,
         val title: String,
         val popularity: Float,
         val posterPath: String,
