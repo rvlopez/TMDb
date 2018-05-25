@@ -3,7 +3,9 @@ package com.example.ruben.privaliachallenge.app.movies.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.example.ruben.privaliachallenge.R;
@@ -26,15 +28,13 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
 
     private MoviesComponent moviesComponent;
 
-    @Inject private MoviesPresenter moviesPresenter;
+    @Inject public MoviesPresenter moviesPresenter;
+    @Inject public MoviesAdapter moviesAdapter;
 
-    @Inject private MoviesAdapter moviesAdapter;
-
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
-
-    @BindView(R.id.moviesRecyclerView)
-    RecyclerView recyclerView;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
+    @BindView(R.id.moviesRecyclerView)RecyclerView recyclerView;
+    @BindView(R.id.show_no_results) LinearLayout showNoResults;
+    @BindView(R.id.toolbar) Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,15 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
     }
 
     @Override
+    protected void initializeToolbar() {
+        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
     protected void initializePresenter() {
         moviesPresenter.setView(this);
+        moviesPresenter.loadPopularMovies(1);
     }
 
     private void initializeRecycler() {
@@ -83,12 +90,14 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
 
     @Override
     public void showNoResults() {
-
+        recyclerView.setVisibility(View.GONE);
+        showNoResults.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideNoResults() {
-
+        recyclerView.setVisibility(View.VISIBLE);
+        showNoResults.setVisibility(View.GONE);
     }
 
     @Override

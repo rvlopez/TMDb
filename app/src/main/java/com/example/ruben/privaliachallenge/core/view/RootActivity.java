@@ -21,6 +21,7 @@ public abstract class RootActivity extends AppCompatActivity {
         }
 
         ButterKnife.bind(this);
+        initializeToolbar();
         initializePresenter();
     }
 
@@ -28,6 +29,8 @@ public abstract class RootActivity extends AppCompatActivity {
     protected abstract int getLayoutResourceId();
 
     protected abstract void initializeInjector();
+
+    protected abstract void initializeToolbar();
 
     protected abstract void initializePresenter();
 }

@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ruben.privaliachallenge.R;
+import com.example.ruben.privaliachallenge.app.TMDbConstants;
 import com.example.ruben.privaliachallenge.entity.MovieEntity;
 
 import java.util.ArrayList;
@@ -38,7 +41,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
         Context context = holder.itemView.getContext();
         MovieEntity movieEntity = movieList.get(position);
 
-        //TODO: Set movie data into a movie ui item
+        Glide.with(context)
+                .load(TMDbConstants.IMAGE_BASE_URL + movieEntity.getPosterPath())
+                .into(holder.movieImage);
+        holder.movieTitle.setText(movieEntity.getTitle());
+        holder.movieYear.setText(movieEntity.getReleaseDate());
+        holder.movieDescription.setText(movieEntity.getOverview());
+
     }
 
     @Override
@@ -48,6 +57,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
 
     public void setMovies(List<MovieEntity> movieList) {
         this.movieList = movieList;
+        notifyDataSetChanged();
     }
 
     static class MoviesViewHolder extends RecyclerView.ViewHolder {
