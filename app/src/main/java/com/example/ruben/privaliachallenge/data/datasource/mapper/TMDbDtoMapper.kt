@@ -32,7 +32,6 @@ class TMDbDtoMapper @Inject constructor(){
                     tmDbMovieDto.originalLang,
                     tmDbMovieDto.originalTitle,
                     tmDbMovieDto.genreIds,
-                    tmDbMovieDto?.backdropPath,
                     tmDbMovieDto.adult,
                     tmDbMovieDto.overview,
                     tmDbMovieDto.releaseDate

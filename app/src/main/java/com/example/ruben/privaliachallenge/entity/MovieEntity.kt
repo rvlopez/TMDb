@@ -13,7 +13,6 @@ class MovieEntity (
         val originalLang: String,
         val originalTitle: String,
         val genreIds: MutableList<Int>,
-        val backdropPath: String,
         val adult: Boolean,
         val overview: String,
         val releaseDate: String

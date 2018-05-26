@@ -20,8 +20,6 @@ data class TMDbMovieDto(
         val originalTitle: String,
         @SerializedName("genre_ids")
         val genreIds: MutableList<Int>,
-        @SerializedName("backdrop_path")
-        val backdropPath: String,
         val adult: Boolean,
         val overview: String,
         @SerializedName("release_date")
