@@ -37,7 +37,6 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
 
             @Override
             public void onCompleted() {
-                Log.d("SEE_PAGE", "         " + page);
                 view.hideProgress();
 
                 if (movieList.isEmpty()) {
@@ -71,7 +70,6 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
 
             @Override
             public void onCompleted() {
-                Log.d("SEE_PAGE", "         " + page);
                 view.hideProgress();
 
                 if (movieList.isEmpty()) {

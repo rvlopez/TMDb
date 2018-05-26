@@ -5,23 +5,25 @@ import java.io.Serializable
 
 data class TMDbMovieDto(
         @SerializedName("vote_count")
-        val voteCount: Int,
-        val id: Int,
-        val video: Boolean,
+        val voteCount: Int?,
+        val id: Int?,
+        val video: Boolean?,
         @SerializedName("vote_average")
-        val voteAverage: Float,
-        val title: String,
-        val popularity: Float,
+        val voteAverage: Float?,
+        val title: String?,
+        val popularity: Float?,
         @SerializedName("poster_path")
-        val posterPath: String,
+        val posterPath: String?,
         @SerializedName("original_language")
-        val originalLang: String,
+        val originalLang: String?,
         @SerializedName("original_title")
-        val originalTitle: String,
+        val originalTitle: String?,
         @SerializedName("genre_ids")
-        val genreIds: MutableList<Int>,
-        val adult: Boolean,
-        val overview: String,
+        val genreIds: MutableList<Int>?,
+        @SerializedName("backdrop_path")
+        val backdropPath: String?,
+        val adult: Boolean?,
+        val overview: String?,
         @SerializedName("release_date")
-        val releaseDate: String
+        val releaseDate: String?
 ) : Serializable

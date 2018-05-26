@@ -22,19 +22,20 @@ class TMDbDtoMapper @Inject constructor(){
 
         for (tmDbMovieDto in tmDbMovieDtoList) {
             movieEntityList.add(MovieEntity(
-                    tmDbMovieDto.voteCount,
-                    tmDbMovieDto.id,
-                    tmDbMovieDto.video,
-                    tmDbMovieDto.voteAverage,
-                    tmDbMovieDto.title,
-                    tmDbMovieDto.popularity,
-                    tmDbMovieDto.posterPath,
-                    tmDbMovieDto.originalLang,
-                    tmDbMovieDto.originalTitle,
-                    tmDbMovieDto.genreIds,
-                    tmDbMovieDto.adult,
-                    tmDbMovieDto.overview,
-                    tmDbMovieDto.releaseDate
+                    tmDbMovieDto.voteCount!!,
+                    tmDbMovieDto.id!!,
+                    tmDbMovieDto.video!!,
+                    tmDbMovieDto.voteAverage!!,
+                    tmDbMovieDto.title!!,
+                    tmDbMovieDto.popularity!!,
+                    tmDbMovieDto.posterPath!!,
+                    tmDbMovieDto.originalLang!!,
+                    tmDbMovieDto.originalTitle!!,
+                    tmDbMovieDto.genreIds!!,
+                    tmDbMovieDto.backdropPath!!,
+                    tmDbMovieDto.adult!!,
+                    tmDbMovieDto.overview!!,
+                    tmDbMovieDto.releaseDate!!
             ))
         }
 
