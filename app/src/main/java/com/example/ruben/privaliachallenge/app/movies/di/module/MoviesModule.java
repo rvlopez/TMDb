@@ -5,6 +5,7 @@ import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCa
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCase;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCaseImpl;
+import com.example.ruben.privaliachallenge.core.executor.MainThread;
 import com.example.ruben.privaliachallenge.data.repository.TMDbRepository;
 
 import dagger.Module;
@@ -19,12 +20,12 @@ public class MoviesModule {
     }
 
     @Provides
-    public PopularMoviesUseCase providePopularMoviesUseCase(TMDbRepository tmdbRepository) {
-        return new PopularMoviesUseCaseImpl(tmdbRepository);
+    public PopularMoviesUseCase providePopularMoviesUseCase(MainThread mainThread, TMDbRepository tmdbRepository) {
+        return new PopularMoviesUseCaseImpl(mainThread, tmdbRepository);
     }
 
     @Provides
-    public SearchMovieUseCase provideSearchMovieUseCase(TMDbRepository tmdbRepository) {
-        return new SearchMovieUseCaseImpl(tmdbRepository);
+    public SearchMovieUseCase provideSearchMovieUseCase(MainThread mainThread, TMDbRepository tmdbRepository) {
+        return new SearchMovieUseCaseImpl(mainThread, tmdbRepository);
     }
 }

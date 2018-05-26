@@ -3,6 +3,7 @@ package com.example.ruben.privaliachallenge.app.di.module;
 import android.content.Context;
 
 import com.example.ruben.privaliachallenge.app.TMDbConstants;
+import com.example.ruben.privaliachallenge.core.executor.MainThread;
 import com.example.ruben.privaliachallenge.data.ServiceFactory;
 import com.example.ruben.privaliachallenge.data.datasource.TMDbApi;
 import com.example.ruben.privaliachallenge.data.datasource.TMDbDataSource;
@@ -24,6 +25,11 @@ public class ApplicationModule {
     @Provides
     public Context provideApplicationContext() {
         return applicationContext;
+    }
+
+    @Provides
+    public MainThread provideMainThread() {
+        return new MainThread();
     }
 
     @Provides
