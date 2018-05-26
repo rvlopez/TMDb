@@ -40,7 +40,8 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
     private MoviesComponent moviesComponent;
     private boolean isSearchMode;
     private String currentQuery;
-    private int page = 1;
+    private int popularMoviesPage = 1;
+    private int searchMoviePage = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +87,9 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
 
                 if (!recyclerView.canScrollVertically(1)) {
                     if (isSearchMode) {
-                        moviesPresenter.searchMovie(currentQuery, page += 1);
+                        moviesPresenter.searchMovie(currentQuery, searchMoviePage += 1);
                     } else {
-                        moviesPresenter.loadPopularMovies(page += 1);
+                        moviesPresenter.loadPopularMovies(popularMoviesPage += 1);
                     }
                 }
             }
@@ -108,9 +109,9 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
                 currentQuery = query;
                 if (query.length() == 0) {
                     moviesAdapter.clearMovies();
-                    moviesPresenter.loadPopularMovies(page);
+                    moviesPresenter.loadPopularMovies(popularMoviesPage);
                 } else {
-                    moviesPresenter.searchMovie(query, page);
+                    moviesPresenter.searchMovie(query, searchMoviePage);
                 }
                 return false;
             }
