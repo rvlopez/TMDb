@@ -1,7 +1,5 @@
 package com.example.ruben.privaliachallenge.app.movies.presenter;
 
-import android.util.Log;
-
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.view.MoviesActivityView;

@@ -1,7 +1,6 @@
 package com.example.ruben.privaliachallenge.app.movies.view;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
