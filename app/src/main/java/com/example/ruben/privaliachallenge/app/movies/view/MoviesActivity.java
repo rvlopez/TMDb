@@ -106,6 +106,7 @@ public class MoviesActivity extends RootActivity implements MoviesActivityView, 
 
             @Override
             public boolean onQueryTextChange(String query) {
+                searchMoviePage = 1;
                 currentQuery = query;
                 if (query.length() == 0) {
                     moviesAdapter.clearMovies();

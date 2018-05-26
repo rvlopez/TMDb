@@ -1,5 +1,7 @@
 package com.example.ruben.privaliachallenge.app.movies.presenter;
 
+import android.util.Log;
+
 import com.example.ruben.privaliachallenge.app.movies.usecase.PopularMoviesUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.usecase.SearchMovieUseCaseImpl;
 import com.example.ruben.privaliachallenge.app.movies.view.MoviesActivityView;
@@ -35,6 +37,7 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
 
             @Override
             public void onCompleted() {
+                Log.d("SEE_PAGE", "         " + page);
                 view.hideProgress();
 
                 if (movieList.isEmpty()) {
@@ -68,13 +71,18 @@ public class MoviesPresenter extends Presenter<MoviesActivityView> {
 
             @Override
             public void onCompleted() {
+                Log.d("SEE_PAGE", "         " + page);
                 view.hideProgress();
 
                 if (movieList.isEmpty()) {
                     view.showNoResults();
                 } else {
                     view.hideNoResults();
-                    view.showSearchMoviesData(movieList);
+                    if (page < 2) {
+                        view.showSearchMoviesData(movieList);
+                    } else {
+                        view.showMoviesData(movieList);
+                    }
                 }
             }
 
