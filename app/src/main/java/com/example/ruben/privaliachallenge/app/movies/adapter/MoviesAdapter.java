@@ -45,7 +45,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
                 .load(TMDbConstants.IMAGE_BASE_URL + movieEntity.getPosterPath())
                 .into(holder.movieImage);
         holder.movieTitle.setText(movieEntity.getTitle());
-        holder.movieYear.setText(movieEntity.getReleaseDate());
+        holder.movieYear.setText(splitReleaseDate(movieEntity.getReleaseDate()));
         holder.movieDescription.setText(movieEntity.getOverview());
     }
 
@@ -71,6 +71,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
     public void clearMovies() {
         this.movieList.clear();
         notifyDataSetChanged();
+    }
+
+    private String splitReleaseDate(String releaseDate) {
+        String[] parts = releaseDate.split("-");
+        return parts[0];
     }
 
     static class MoviesViewHolder extends RecyclerView.ViewHolder {
