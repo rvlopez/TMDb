@@ -21,21 +21,25 @@ class TMDbDtoMapper @Inject constructor(){
         val movieEntityList: MutableList<MovieEntity> = mutableListOf()
 
         for (tmDbMovieDto in tmDbMovieDtoList) {
+
+            val posterPath: String = if (tmDbMovieDto.posterPath != null) tmDbMovieDto.posterPath else ""
+            val backdropPath: String = if (tmDbMovieDto.backdropPath != null) tmDbMovieDto.backdropPath else ""
+
             movieEntityList.add(MovieEntity(
-                    tmDbMovieDto.voteCount!!,
-                    tmDbMovieDto.id!!,
-                    tmDbMovieDto.video!!,
-                    tmDbMovieDto.voteAverage!!,
-                    tmDbMovieDto.title!!,
-                    tmDbMovieDto.popularity!!,
-                    tmDbMovieDto.posterPath!!,
-                    tmDbMovieDto.originalLang!!,
-                    tmDbMovieDto.originalTitle!!,
-                    tmDbMovieDto.genreIds!!,
-                    tmDbMovieDto.backdropPath!!,
-                    tmDbMovieDto.adult!!,
-                    tmDbMovieDto.overview!!,
-                    tmDbMovieDto.releaseDate!!
+                    tmDbMovieDto.voteCount,
+                    tmDbMovieDto.id,
+                    tmDbMovieDto.video,
+                    tmDbMovieDto.voteAverage,
+                    tmDbMovieDto.title,
+                    tmDbMovieDto.popularity,
+                    posterPath,
+                    tmDbMovieDto.originalLang,
+                    tmDbMovieDto.originalTitle,
+                    tmDbMovieDto.genreIds,
+                    backdropPath,
+                    tmDbMovieDto.adult,
+                    tmDbMovieDto.overview,
+                    tmDbMovieDto.releaseDate
             ))
         }
 
